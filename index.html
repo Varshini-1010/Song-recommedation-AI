@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SongSense – songs for how you feel</title>
+<meta name="description" content="Tell SongSense your mood and taste, and get a playlist of real songs picked by AI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="layout">
+  <section class="panel">
+    <h1 class="brand">SongSense</h1>
+    <p class="intro">Tell us how you feel and what you like. We'll build you a playlist of real songs.</p>
+
+    <form id="form" novalidate>
+      <fieldset class="moods">
+        <legend>How are you feeling?</legend>
+        <div class="mood-row" id="moods"></div>
+      </fieldset>
+
+      <label>What are you doing?
+        <input name="activity" placeholder="Studying, driving at night, working out…" maxlength="60">
+      </label>
+      <label>Genres you enjoy
+        <input name="genres" placeholder="Indie pop, lo-fi, Carnatic fusion…" maxlength="120">
+      </label>
+      <label>Artists you like
+        <input name="artists" placeholder="A. R. Rahman, Anirudh, Taylor Swift…" maxlength="120">
+      </label>
+      <div class="split">
+        <label>Languages
+          <input name="languages" placeholder="Tamil, English" maxlength="80">
+        </label>
+        <label>Songs
+          <select name="count"><option>5</option><option selected>8</option><option>10</option><option>15</option></select>
+        </label>
+      </div>
+      <button type="submit" id="go">Make my playlist</button>
+      <p class="error" id="error" role="alert"></p>
+    </form>
+  </section>
+
+  <section class="results" aria-live="polite">
+    <div class="empty" id="empty">
+      <div class="disc" aria-hidden="true"></div>
+      <p>Your playlist will appear here.</p>
+    </div>
+    <div class="loading" id="loading" hidden>
+      <div class="disc spin" aria-hidden="true"></div>
+      <p>Picking songs for you…</p>
+    </div>
+    <div id="playlist" hidden>
+      <h2 id="pname"></h2>
+      <p class="pmeta" id="pmeta"></p>
+      <ol class="tracks" id="tracks"></ol>
+      <button class="again" id="again" type="button">Give me different songs</button>
+    </div>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
